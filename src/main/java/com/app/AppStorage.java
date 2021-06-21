@@ -30,8 +30,8 @@ public final class AppStorage {
   private static final OrderStatus inProgress = new OrderStatus(2L, "Maintenance in progress");
   private static final OrderStatus finished = new OrderStatus(3L, "Maintenance was finished");
 
-  private static final Order order1 = new Order(1L, waitingStart, car1, master1);
-  private static final Order order2 = new Order(2L, inProgress, car2, master2);
+  private static final Order order1 = new Order(1L, waitingStart, null, master1);
+  private static final Order order2 = new Order(2L, inProgress, car2, null);
   private static final Order order3 = new Order(3L, finished, car3, master3);
   private static final Order order4 = new Order(4L, finished, car4, master4);
 

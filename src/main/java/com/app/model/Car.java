@@ -7,9 +7,6 @@ public class Car {
   private Client client;
   private Order order;
 
-  public Car() {
-  }
-
   public Car(Long id, String carNumber, Client client) {
     this.id = id;
     this.carNumber = carNumber;

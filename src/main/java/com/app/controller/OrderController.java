@@ -1,5 +1,8 @@
 package com.app.controller;
 
+import com.app.exception.CarAlreadyAssignedToAnotherOrderException;
+import com.app.exception.NullableObjectIdentityException;
+import com.app.exception.ObjectNotExistException;
 import com.app.model.Order;
 import com.app.service.OrderServiceImpl;
 import com.app.service.api.OrderService;
@@ -21,7 +24,7 @@ public class OrderController {
   private OrderService orderService;
 
   @GetMapping("/find-by-id/{id}")
-  public Order findOrderById(@PathVariable Long id) {
+  public Order findOrderById(@PathVariable Long id) throws ObjectNotExistException {
     return orderService.findOrderById(id);
   }
 
@@ -30,23 +33,25 @@ public class OrderController {
     return orderService.findOrdersByStatus(statusId);
   }
 
-  @GetMapping("/find-all-order")
+  @GetMapping("/find-all")
   public List<Order> findAllOrder() {
     return orderService.findAllOrders();
   }
 
   @PostMapping("/add")
-  public Long addOrder(@RequestBody Order order) {
+  public Long addOrder(@RequestBody Order order)
+      throws ObjectNotExistException, CarAlreadyAssignedToAnotherOrderException, NullableObjectIdentityException {
     return orderService.addOrder(order);
   }
 
   @PutMapping("/update")
-  public void updateOrder(@RequestBody Order order) {
+  public void updateOrder(@RequestBody Order order)
+      throws ObjectNotExistException, NullableObjectIdentityException, CarAlreadyAssignedToAnotherOrderException {
     orderService.updateOrder(order);
   }
 
   @DeleteMapping("/delete-by-id/{id}")
-  public void deleteOrderById(@PathVariable Long id) {
+  public void deleteOrderById(@PathVariable Long id) throws NullableObjectIdentityException {
     orderService.deleteOrderById(id);
   }
 

@@ -46,7 +46,8 @@ public class CarServiceImpl implements CarService {
   public void updateCar(Car car) throws NullableObjectIdentityException, ObjectNotExistException {
     Long carId = car.getId();
     checkNullableIdentity(carId);
-    checkNullableObject(car);
+    Car carFromStorage = cars.get(carId);
+    checkNullableObject(carFromStorage);
     cars.put(carId, car);
   }
 

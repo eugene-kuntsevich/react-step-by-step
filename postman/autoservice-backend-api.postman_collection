@@ -25,12 +25,108 @@
 			"response": []
 		},
 		{
+			"name": "findAllOrderStatuses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order-status/find-all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order-status",
+						"find-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllMasters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/master/find-all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
+						"find-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/find-all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"find-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllFreeMasters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/master/find-free-masters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
+						"find-free-masters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findOrderById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/find-by-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"find-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "findCarById",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/car/find-by-id/4",
+					"raw": "localhost:8080/car/find-by-id/1",
 					"host": [
 						"localhost"
 					],
@@ -38,7 +134,47 @@
 					"path": [
 						"car",
 						"find-by-id",
-						"4"
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findOrderStatusById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order-status/find-by-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order-status",
+						"find-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findMasterById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/master/find-by-id/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
+						"find-by-id",
+						"2"
 					]
 				}
 			},
@@ -93,6 +229,62 @@
 			"response": []
 		},
 		{
+			"name": "updateOrderStatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"Waiting start of maintenance!!!\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/order-status/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order-status",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addOrderStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Maintenance was suspended\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/order-status/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order-status",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "addCar",
 			"request": {
 				"method": "POST",
@@ -121,6 +313,118 @@
 			"response": []
 		},
 		{
+			"name": "addOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderStatus\": {\r\n        \"id\": 2\r\n    },\r\n    \"car\": {\r\n        \"id\": 1\r\n    },\r\n    \"master\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/order/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addMaster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"secondName\": \"Levis\",\r\n    \"order\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/master/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMaster",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"firstName\": \"Rob\",\r\n    \"secondName\": \"Bridge\",\r\n    \"order\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/master/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"orderStatus\": {\r\n        \"id\": 2\r\n    },\r\n    \"car\": {\r\n        \"id\": 1\r\n    },\r\n    \"master\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/order/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "deleteCarById",
 			"request": {
 				"method": "DELETE",
@@ -133,6 +437,66 @@
 					"port": "8080",
 					"path": [
 						"car",
+						"delete-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrderById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/delete-by-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"delete-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrderStatusById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order-status/delete-by-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order-status",
+						"delete-by-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMasterById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/master/delete-by-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"master",
 						"delete-by-id",
 						"1"
 					]

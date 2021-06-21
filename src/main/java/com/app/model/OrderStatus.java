@@ -5,9 +5,6 @@ public class OrderStatus {
   private Long id;
   private String name;
 
-  public OrderStatus() {
-  }
-
   public OrderStatus(Long id, String name) {
     this.id = id;
     this.name = name;

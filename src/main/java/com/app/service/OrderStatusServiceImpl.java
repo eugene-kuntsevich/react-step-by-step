@@ -41,7 +41,8 @@ public class OrderStatusServiceImpl implements OrderStatusService {
       throws NullableObjectIdentityException, ObjectNotExistException {
     Long orderStatusId = orderStatus.getId();
     checkNullableIdentity(orderStatusId);
-    checkNullableObject(orderStatus);
+    OrderStatus orderStatusFromStorage = orderStatuses.get(orderStatusId);
+    checkNullableObject(orderStatusFromStorage);
     orderStatuses.put(orderStatusId, orderStatus);
   }
 

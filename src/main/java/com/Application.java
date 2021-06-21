@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 //postman collection
 //thymeleaf index page
 //add Auth with token
+//add logger for external users
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
     SecurityAutoConfiguration.class})
 public class Application {

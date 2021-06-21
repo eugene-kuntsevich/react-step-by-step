@@ -7,16 +7,6 @@ public class Order {
   private Car car;
   private Master master;
 
-
-  public Order() {
-  }
-
-  public Order(Long id, OrderStatus orderStatus, Car car) {
-    this.id = id;
-    this.orderStatus = orderStatus;
-    this.car = car;
-  }
-
   public Order(Long id, OrderStatus orderStatus, Car car, Master master) {
     this.id = id;
     this.orderStatus = orderStatus;
