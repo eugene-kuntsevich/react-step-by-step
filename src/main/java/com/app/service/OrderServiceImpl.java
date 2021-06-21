@@ -68,12 +68,45 @@ public class OrderServiceImpl implements OrderService {
   public void updateOrder(Order order)
       throws NullableObjectIdentityException, ObjectNotExistException, CarAlreadyAssignedToAnotherOrderException {
     Long orderId = order.getId();
-    checkNullableIdentity(orderId);
-    Order orderFromStorage = orders.get(orderId);
-    checkNullableObject(orderFromStorage);
+    checkOrderBeforeUpdate(orderId);
     checkOrderInnerObjectsAndSetValues(order);
     checkCarAssignedToAnotherOrder(order.getCar().getId());
     orders.put(orderId, order);
+  }
+
+  @Override
+  public void updateMasterForOrder(Long orderId, Long newMasterId)
+      throws ObjectNotExistException, NullableObjectIdentityException {
+    Order orderFromStorage = checkOrderBeforeUpdate(orderId);
+    Master newMaster = masterService.findMasterById(newMasterId);
+    orderFromStorage.setMaster(newMaster);
+    orders.put(orderId, orderFromStorage);
+  }
+
+  @Override
+  public void updateCarForOrder(Long orderId, Long newCarId)
+      throws ObjectNotExistException, NullableObjectIdentityException, CarAlreadyAssignedToAnotherOrderException {
+    checkCarAssignedToAnotherOrder(newCarId);
+    Order orderFromStorage = checkOrderBeforeUpdate(orderId);
+    Car newCar = carService.findCarById(newCarId);
+    orderFromStorage.setCar(newCar);
+    orders.put(orderId, orderFromStorage);
+  }
+
+  @Override
+  public void unlinkMasterFromOrder(Long orderId) throws ObjectNotExistException {
+    Order orderFromStorage = orders.get(orderId);
+    checkNullableObject(orderFromStorage);
+    orderFromStorage.setMaster(null);
+    orders.put(orderId, orderFromStorage);
+  }
+
+  @Override
+  public void unlinkCarFromOrder(Long orderId) throws ObjectNotExistException {
+    Order orderFromStorage = orders.get(orderId);
+    checkNullableObject(orderFromStorage);
+    orderFromStorage.setCar(null);
+    orders.put(orderId, orderFromStorage);
   }
 
   private void checkOrderInnerObjectsAndSetValues(Order order) throws ObjectNotExistException {
@@ -100,6 +133,14 @@ public class OrderServiceImpl implements OrderService {
     if (count > 0) {
       throw new CarAlreadyAssignedToAnotherOrderException();
     }
+  }
+
+  private Order checkOrderBeforeUpdate(Long orderId)
+      throws NullableObjectIdentityException, ObjectNotExistException {
+    checkNullableIdentity(orderId);
+    Order orderFromStorage = orders.get(orderId);
+    checkNullableObject(orderFromStorage);
+    return orderFromStorage;
   }
 
   @Override

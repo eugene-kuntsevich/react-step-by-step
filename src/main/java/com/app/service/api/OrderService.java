@@ -14,15 +14,20 @@ public interface OrderService {
 
   List<Order> findAllOrders();
 
-  Long addOrder(Order order) throws ObjectNotExistException, CarAlreadyAssignedToAnotherOrderException, NullableObjectIdentityException;
+  Long addOrder(Order order)
+      throws ObjectNotExistException, CarAlreadyAssignedToAnotherOrderException, NullableObjectIdentityException;
 
   void updateOrder(Order order)
       throws NullableObjectIdentityException, ObjectNotExistException, CarAlreadyAssignedToAnotherOrderException;
 
-  void deleteOrderById(Long orderId) throws NullableObjectIdentityException;
+  void updateMasterForOrder(Long orderId, Long newMasterId) throws ObjectNotExistException, NullableObjectIdentityException;
 
-  //update Master for Order
-  //update Car for Order
-  //remove Master for Order
-  //remove Car for Order
+  void updateCarForOrder(Long orderId, Long newCarId)
+      throws ObjectNotExistException, NullableObjectIdentityException, CarAlreadyAssignedToAnotherOrderException;
+
+  void unlinkMasterFromOrder(Long orderId) throws ObjectNotExistException;
+
+  void unlinkCarFromOrder(Long orderId) throws ObjectNotExistException;
+
+  void deleteOrderById(Long orderId) throws NullableObjectIdentityException;
 }

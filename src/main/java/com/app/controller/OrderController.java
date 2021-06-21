@@ -50,6 +50,28 @@ public class OrderController {
     orderService.updateOrder(order);
   }
 
+  @PutMapping("/update-master-for-order/{orderId}/{newMasterId}")
+  public void updateMasterForOrder(@PathVariable Long orderId, @PathVariable Long newMasterId)
+      throws ObjectNotExistException, NullableObjectIdentityException {
+    orderService.updateMasterForOrder(orderId, newMasterId);
+  }
+
+  @PutMapping("/update-car-for-order/{orderId}/{newCarId}")
+  public void updateCarForOrder(@PathVariable Long orderId, @PathVariable Long newCarId)
+      throws ObjectNotExistException, NullableObjectIdentityException, CarAlreadyAssignedToAnotherOrderException {
+    orderService.updateCarForOrder(orderId, newCarId);
+  }
+
+  @PutMapping("/unlink-master-from-order/{orderId}")
+  public void unlinkMasterFromOrder(@PathVariable Long orderId) throws ObjectNotExistException {
+    orderService.unlinkMasterFromOrder(orderId);
+  }
+
+  @PutMapping("/unlink-car-from-order/{orderId}")
+  public void unlinkCarFromOrder(@PathVariable Long orderId) throws ObjectNotExistException {
+    orderService.unlinkCarFromOrder(orderId);
+  }
+
   @DeleteMapping("/delete-by-id/{id}")
   public void deleteOrderById(@PathVariable Long id) throws NullableObjectIdentityException {
     orderService.deleteOrderById(id);
