@@ -1,0 +1,6 @@
+= ReadMe for developers of server application
+
+=== How to build executable jar
+
+. Use command: ```mvn clean package spring-boot:repackage```
+. Check path: ```target/autoservice-backend-api-1.0-SNAPSHOT.jar```

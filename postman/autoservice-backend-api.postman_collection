@@ -425,6 +425,88 @@
 			"response": []
 		},
 		{
+			"name": "updateMasterForOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/update-master-for-order/2/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"update-master-for-order",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCarForOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/update-car-for-order/2/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"update-car-for-order",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unlinkMasterFromOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/unlink-master-from-order/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"unlink-master-from-order",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unlinkCarFromOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order/unlink-car-from-order/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"unlink-car-from-order",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "deleteCarById",
 			"request": {
 				"method": "DELETE",
