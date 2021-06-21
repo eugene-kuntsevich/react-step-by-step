@@ -5,6 +5,9 @@ import com.app.exception.ObjectNotExistException;
 
 public final class ValidatorUtil {
 
+  private ValidatorUtil() {
+  }
+
   public static void checkNullableIdentity(Long id) throws NullableObjectIdentityException {
     if (id == null) {
       throw new NullableObjectIdentityException();

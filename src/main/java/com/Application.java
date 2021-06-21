@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 //exception handler
 //postman collection
 //thymeleaf index page
+//add Auth with token
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,
     SecurityAutoConfiguration.class})
 public class Application {

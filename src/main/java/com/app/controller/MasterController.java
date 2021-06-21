@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import com.app.exception.NullableObjectIdentityException;
+import com.app.exception.ObjectNotExistException;
 import com.app.model.Master;
 import com.app.service.api.MasterService;
 import java.util.List;
@@ -20,7 +22,7 @@ public class MasterController {
   private MasterService masterService;
 
   @GetMapping("/find-by-id/{id}")
-  public Master findMasterById(@PathVariable Long id) {
+  public Master findMasterById(@PathVariable Long id) throws ObjectNotExistException {
     return masterService.findMasterById(id);
   }
 
@@ -40,12 +42,13 @@ public class MasterController {
   }
 
   @PutMapping("/update")
-  public void updateMaster(@RequestBody Master master) {
+  public void updateMaster(@RequestBody Master master)
+      throws ObjectNotExistException, NullableObjectIdentityException {
     masterService.updateMaster(master);
   }
 
   @DeleteMapping("/delete-by-id/{id}")
-  public void deleteMasterById(@PathVariable Long id) {
+  public void deleteMasterById(@PathVariable Long id) throws NullableObjectIdentityException {
     masterService.deleteMasterById(id);
   }
 
