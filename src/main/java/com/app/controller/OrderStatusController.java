@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import com.app.exception.NullableObjectIdentityException;
+import com.app.exception.ObjectNotExistException;
 import com.app.model.OrderStatus;
 import com.app.service.OrderStatusServiceImpl;
 import com.app.service.api.OrderStatusService;
@@ -20,14 +22,13 @@ public class OrderStatusController {
 
   private OrderStatusService orderStatusService;
 
-
   @GetMapping("/find-by-id/{id}")
-  public OrderStatus findOrderStatusById(@PathVariable Long id) {
+  public OrderStatus findOrderStatusById(@PathVariable Long id) throws ObjectNotExistException {
     return orderStatusService.findOrderStatusById(id);
   }
 
   @GetMapping("/find-all")
-  public List<OrderStatus> findAllOrderStatus() {
+  public List<OrderStatus> findAllOrderStatuses() {
     return orderStatusService.findAllOrderStatuses();
   }
 
@@ -37,12 +38,13 @@ public class OrderStatusController {
   }
 
   @PutMapping("/update")
-  public void updateOrderStatus(@RequestBody OrderStatus orderStatus) {
+  public void updateOrderStatus(@RequestBody OrderStatus orderStatus)
+      throws ObjectNotExistException, NullableObjectIdentityException {
     orderStatusService.updateOrderStatus(orderStatus);
   }
 
   @DeleteMapping("/delete-by-id/{id}")
-  public void deleteOrderStatusById(@PathVariable Long id) {
+  public void deleteOrderStatusById(@PathVariable Long id) throws NullableObjectIdentityException {
     orderStatusService.deleteOrderStatusById(id);
   }
 

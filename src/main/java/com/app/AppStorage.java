@@ -51,7 +51,7 @@ public final class AppStorage {
 
   public static Map<Long, Car> cars = new HashMap<>(immutableCarsMap);
   public static Map<Long, Master> masters = new HashMap<>(immutableMastersMap);
-  public static Map<Long, OrderStatus> orderStatus = new HashMap<>(immutableOrderStatusesMap);
+  public static Map<Long, OrderStatus> orderStatuses = new HashMap<>(immutableOrderStatusesMap);
   public static Map<Long, Order> orders = new HashMap<>(immutableOrdersMap);
 
   {
