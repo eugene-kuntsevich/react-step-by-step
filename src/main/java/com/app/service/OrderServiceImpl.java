@@ -24,7 +24,12 @@ public class OrderServiceImpl implements OrderService {
   }
 
   @Override
-  public void saveOrder(Order order) {
+  public Long addOrder(Order order) {
+    return null;
+  }
+
+  @Override
+  public void updateOrder(Order order) {
 
   }
 

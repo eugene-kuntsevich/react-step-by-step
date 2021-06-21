@@ -1,63 +1,56 @@
 package com.app.controller;
 
+import com.app.model.Master;
+import com.app.service.api.MasterService;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.model.Master;
-import com.app.service.api.MasterService;
-
 @RestController
 @RequestMapping("/master")
-public class MasterController
-{
-	private MasterService masterService;
+public class MasterController {
 
-	@PostMapping("/save-master")
-	public void addMaster(@RequestBody Master master)
-	{
-		masterService.addMaster(master);
-	}
+  private MasterService masterService;
 
-	@DeleteMapping("/delete-master")
-	public void deleteMaster(@RequestBody Master master)
-	{
-		masterService.deleteMaster(master);
-	}
+  @GetMapping("/find-by-id/{id}")
+  public Master findMasterById(@PathVariable Long id) {
+    return masterService.findMasterById(id);
+  }
 
-	@GetMapping("/find-master-by-id/{id}")
-	public Master findMasterById(@PathVariable Long id)
-	{
-		return masterService.findMasterById(id);
-	}
+  @GetMapping("/find-free-masters")
+  public List<Master> findAllFreeMasters() {
+    return masterService.findFreeMasters();
+  }
 
-	@GetMapping("/find-all-master")
-	public List<Master> findAllMasters()
-	{
-		return masterService.findAllMasters();
-	}
+  @GetMapping("/find-all")
+  public List<Master> findAllMasters() {
+    return masterService.findAllMasters();
+  }
 
-	 @DeleteMapping("/delete-master/{id}")
-    public void deleteMaster(@PathVariable Long id) {
-        masterService.deleteMasterById(id);
-    }
+  @PostMapping("/add")
+  public Long addMaster(@RequestBody Master master) {
+    return masterService.addMaster(master);
+  }
 
-	@GetMapping("/find-free-masters")
-	public List<Master> findAllFreeMasters()
-	{
-		return masterService.findFreeMasters();
-	}
+  @PutMapping("/update")
+  public void updateMaster(@RequestBody Master master) {
+    masterService.updateMaster(master);
+  }
 
-	@Autowired
-	public void setMasterService(MasterService masterService)
-	{
-		this.masterService = masterService;
-	}
+  @DeleteMapping("/delete-by-id/{id}")
+  public void deleteMasterById(@PathVariable Long id) {
+    masterService.deleteMasterById(id);
+  }
+
+  @Autowired
+  public void setMasterService(MasterService masterService) {
+    this.masterService = masterService;
+  }
 }

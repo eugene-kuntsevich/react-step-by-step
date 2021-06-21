@@ -6,15 +6,15 @@ import com.app.model.Master;
 
 public interface MasterService
 {
-	void addMaster(Master master);
-
 	Master findMasterById(Long id);
 
-	void deleteMaster(Master master);
-
-	void deleteMasterById(Long masterId);
+	List<Master> findFreeMasters();
 
 	List<Master> findAllMasters();
 
-    List<Master> findFreeMasters();
+	Long addMaster(Master master);
+
+	void updateMaster(Master master);
+
+	void deleteMasterById(Long masterId);
 }

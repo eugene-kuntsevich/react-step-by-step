@@ -5,13 +5,15 @@ import java.util.List;
 
 public interface OrderStatusService {
 
-  void addOrderStatus(OrderStatus orderStatus);
-
   OrderStatus findOrderStatusById(Long id);
+
+  List<OrderStatus> findAllOrderStatuses();
+
+  Long addOrderStatus(OrderStatus orderStatus);
+
+  void updateOrderStatus(OrderStatus orderStatus);
 
   void deleteOrderStatus(OrderStatus orderStatus);
 
   void deleteOrderStatusById(Long orderStatusId);
-
-  List<OrderStatus> findAllOrderStatuses();
 }

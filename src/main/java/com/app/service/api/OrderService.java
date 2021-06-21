@@ -11,7 +11,9 @@ public interface OrderService {
 
   List<Order> findAllOrders();
 
-  void saveOrder(Order order) throws Exception;
+  Long addOrder(Order order);
+
+  void updateOrder(Order order);
 
   void deleteOrder(Order order);
 
