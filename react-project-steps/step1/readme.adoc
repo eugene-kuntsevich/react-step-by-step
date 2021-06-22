@@ -1,0 +1,2 @@
+- создать стартовое приложение с помощью cli и подключением TypeScript (yarn create react-app my-app --template typescript)
+- подключить использование sass вместо css (yarn add node-sass)
