@@ -1,4 +1,4 @@
-= ReadMe for developers of server application
+= README
 
 === How to build executable jar
 

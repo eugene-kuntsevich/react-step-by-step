@@ -1,6 +1,5 @@
 package com.app.service;
 
-import static com.app.AppStorage.cars;
 import static com.app.AppStorage.masterIdGenerator;
 import static com.app.AppStorage.masters;
 import static com.app.util.ValidatorUtil.checkNullableIdentity;
@@ -8,7 +7,6 @@ import static com.app.util.ValidatorUtil.checkNullableObject;
 
 import com.app.exception.NullableObjectIdentityException;
 import com.app.exception.ObjectNotExistException;
-import com.app.model.Car;
 import com.app.model.Master;
 import com.app.service.api.MasterService;
 import java.util.ArrayList;
