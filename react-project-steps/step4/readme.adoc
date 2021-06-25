@@ -1,27 +1,27 @@
 1) создать модели объектов со следующими полями:
-- Master
+- MasterModel
   id: number;
   firstName: string;
   secondName: string;
   order: OrderModel;
 
-- Car
+- CarModel
   id: number;
   carNumber: string;
   client: ClientModel;
   order: OrderModel;
 
-- Order
+- OrderModel
   id: number;
   orderStatus: OrderStatusModel;
   car: CarModel;
   master: MasterModel;
 
-- OrderStatus
+- OrderStatusModel
   id: number;
   name: string;
 
- - Client
+ - ClientModel
   id: number;
   firstName: string;
   secondName: string;
