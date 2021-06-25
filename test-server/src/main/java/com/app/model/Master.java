@@ -7,6 +7,9 @@ public class Master {
   private String secondName;
   private Order order;
 
+  public Master() {
+  }
+
   public Master(Long id, String firstName, String secondName) {
     this.id = id;
     this.firstName = firstName;

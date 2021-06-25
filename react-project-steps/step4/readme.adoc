@@ -1,0 +1,37 @@
+1) создать модели объектов со следующими полями:
+- Master
+  id: number;
+  firstName: string;
+  secondName: string;
+  order: OrderModel;
+
+- Car
+  id: number;
+  carNumber: string;
+  client: ClientModel;
+  order: OrderModel;
+
+- Order
+  id: number;
+  orderStatus: OrderStatusModel;
+  car: CarModel;
+  master: MasterModel;
+
+- OrderStatus
+  id: number;
+  name: string;
+
+ - Client
+  id: number;
+  firstName: string;
+  secondName: string;
+  phoneNumber: string;
+
+2) использовать временный массив с автомобилями для добавления в таблицу и вывода на экран во вкладке Cars:
+
+const carsList = // TODO test data, should be replaced by server call
+      [
+        new CarModel(1, '1234 GK-3', new ClientModel(1, 'John', 'Smith', '+345-78-2590572'), null),
+        new CarModel(2, '5678 WC-5', new ClientModel(2, 'Max', 'Payne', '+379-21-7370861'), null)
+      ];
+В будущем массив будет заменен на данные, полученные с сервера

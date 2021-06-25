@@ -2,6 +2,7 @@ package com.app.service;
 
 import static com.app.AppStorage.carIdGenerator;
 import static com.app.AppStorage.cars;
+import static com.app.converter.CarConverter.convertCarsFromStorage;
 import static com.app.util.ValidatorUtil.checkNullableIdentity;
 import static com.app.util.ValidatorUtil.checkNullableObject;
 
@@ -25,7 +26,8 @@ public class CarServiceImpl implements CarService {
 
   @Override
   public List<Car> findAllCars() {
-    return new ArrayList<>(cars.values());
+    List<Car> carsFromStorage = new ArrayList<>(cars.values());
+    return convertCarsFromStorage(carsFromStorage);
   }
 
   @Override
