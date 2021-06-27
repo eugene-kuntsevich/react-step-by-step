@@ -1,0 +1,17 @@
+nav {
+  position: relative;
+  white-space: nowrap;
+  background: white;
+  padding: var(--underline-height) 0;
+  margin: 2em 0;
+  box-shadow: 0 1em 2em rgba(black, .05);
+}
+
+a {
+  display: inline-block;
+  z-index: 10;
+  width: 20%;
+  padding: 1em 0;
+  text-align: center;
+  cursor: pointer;
+}
