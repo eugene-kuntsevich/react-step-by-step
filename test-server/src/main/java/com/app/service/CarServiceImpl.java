@@ -2,6 +2,7 @@ package com.app.service;
 
 import static com.app.AppStorage.carIdGenerator;
 import static com.app.AppStorage.cars;
+import static com.app.converter.CarConverter.convertCarFromStorage;
 import static com.app.converter.CarConverter.convertCarsFromStorage;
 import static com.app.util.ValidatorUtil.checkNullableIdentity;
 import static com.app.util.ValidatorUtil.checkNullableObject;
@@ -21,7 +22,7 @@ public class CarServiceImpl implements CarService {
   public Car findCarById(Long id) throws ObjectNotExistException {
     Car car = cars.get(id);
     checkNullableObject(car);
-    return car;
+    return convertCarFromStorage(car);
   }
 
   @Override
