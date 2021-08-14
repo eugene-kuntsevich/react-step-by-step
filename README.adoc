@@ -22,8 +22,8 @@
 
 Проект состоит из двух частей:
 
-. План разработки приложения с нуля https://github.com/eugene-kuntsevich/autoservice-backend-api/tree/master/react-project-steps[здесь]
-. Вспомогательной части — сервера, который написан специально для целей обучения https://github.com/eugene-kuntsevich/autoservice-backend-api/tree/master/test-server[здесь]
+. План разработки приложения с нуля https://github.com/eugene-kuntsevich/carservice-backend-api/tree/master/react-project-steps[здесь]
+. Вспомогательной части — сервера, который написан специально для целей обучения https://github.com/eugene-kuntsevich/carservice-backend-api/tree/master/test-server[здесь]
 
 *Важный момент* — все шаги плана по написанию приложения на реакте согласованы с серверной реализацией
 
